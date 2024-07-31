@@ -20,6 +20,9 @@ per_capita <- read_csv('.//data_csv/per_capita.csv')
 ```{r}
 con <- DBI::dbConnect(SQLite(), ":memory:")
 DBI::dbWriteTable(conn = con, name = "continent_map", value = continent_map)
+DBI::dbWriteTable(conn = con, name = "per_capita", value = per_capita)
+DBI::dbWriteTable(conn = con, name = "continents", value = continents)
+DBI::dbWriteTable(conn = con, name = "countries", value = countries)
 ```
 
 1. Data Integrity Checking & Cleanup
@@ -60,13 +63,6 @@ The list should include the columns:
 * country_code
 * country_name
 * growth_percent
-
-```{r}
-DBI::dbWriteTable(conn = con, name = "per_capita", value = per_capita)
-DBI::dbWriteTable(conn = con, name = "continent_map", value = continent_map)
-DBI::dbWriteTable(conn = con, name = "continents", value = continents)
-DBI::dbWriteTable(conn = con, name = "countries", value = countries)
-```
 
 For this question, there are two elements of data cleaning:
 
